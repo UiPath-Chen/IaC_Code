@@ -202,7 +202,7 @@ setup_harbor() {
     -X 'PUT' \
     -H 'content-type: application/json' \
     -u admin:${harbor_password} \
-    --data-raw '{"metadata":{"public":"false","enable_content_trust":"false","enable_content_trust_cosign":"true","prevent_vul":"true","severity":"critical","auto_scan":"true","reuse_sys_cve_allowlist":"true"},"cve_allowlist":{"creation_time":"0001-01-01T00:00:00.000Z","id":2,"items":[],"project_id":2,"update_time":"0001-01-01T00:00:00.000Z","expires_at":null}}' \
+    --data-raw '{"metadata":{"public":"false","enable_content_trust":"false","enable_content_trust_cosign":"true","prevent_vul":"false","severity":"critical","auto_scan":"false","reuse_sys_cve_allowlist":"true"},"cve_allowlist":{"creation_time":"0001-01-01T00:00:00.000Z","id":2,"items":[],"project_id":2,"update_time":"0001-01-01T00:00:00.000Z","expires_at":null}}' \
     --compressed --insecure --fail
 }
 
