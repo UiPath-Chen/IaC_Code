@@ -6,7 +6,7 @@ on:
 env:
   OWNER: devops-advanced-camp
   REPO: code
-  TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  TOKEN: ${{ secrets.PAT }}
 
 jobs:
   invite_collaborators:
