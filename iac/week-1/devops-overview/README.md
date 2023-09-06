@@ -194,7 +194,7 @@ Password: Harbor12345
 
 ## SonarQube
 ```
-http://sonarqube.${prefix}.gkdevopscamp.com
+http://sonar.${prefix}.gkdevopscamp.com
 Username: admin
 Password: password123
 ```
