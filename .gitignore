@@ -36,5 +36,4 @@ terraform.rc
 .DS_Store
 
 # devops camp code
-**/week-2
 **/week-9
