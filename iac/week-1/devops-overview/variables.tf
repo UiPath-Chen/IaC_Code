@@ -2,7 +2,7 @@
 
 # Change it!
 variable "prefix" {
-  default = "202309081902"
+  default = "1987"
 }
 variable "secret_id" {
   default = "Your Access ID"
