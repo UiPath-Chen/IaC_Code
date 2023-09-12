@@ -2,8 +2,9 @@
 
 # Change it!
 variable "prefix" {
-  default = "1987"
+  default = "keystone"
 }
+
 variable "secret_id" {
   default = "Your Access ID"
 }
@@ -14,8 +15,8 @@ variable "secret_key" {
 
 variable "domain" {
   # default = "gkdevopscamp.com"
-  # default = "devopscamp.us"
-  default = "gkdevopscamp.uk"
+  default = "devopscamp.us"
+  # default = "gkdevopscamp.uk"
 }
 
 # harbor default registry name
