@@ -1,0 +1,9 @@
+FROM golang:1.17 AS builder 
+
+WORKDIR /opt/app
+COPY . .
+RUN go mod init main.go && go mod tidy && go build -o example 
+
+FROM ubuntu:latest
+COPY --from=builder /opt/app/example /opt/app/example
+ENTRYPOINT [ "/opt/app/example" ]

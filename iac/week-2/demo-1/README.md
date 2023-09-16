@@ -3,6 +3,6 @@
 1. build nginx image
 
 ```
-docker build -t nginx -f Dockerfile .
+docker build -t nginx -f Dockerfile [--no-cache] .
 ```
 
