@@ -4,4 +4,4 @@ all: release
 
 release:
 	echo "build image"
-	docker build --tag dockerkeystone/helloworld:$(tag) .
+	docker buildx build --tag dockerkeystone/helloworld:$(tag) .
