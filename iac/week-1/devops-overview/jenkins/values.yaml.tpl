@@ -22,7 +22,7 @@ controller:
     - kubernetes:4029.v5712230ccb_f8
     - workflow-aggregator:596.v8c21c963d92d
     - git:5.1.0
-    - configuration-as-code:1647.ve39ca_b_829b_42
+    - configuration-as-code:1670.v564dc8b_982d0
   additionalPlugins:
     - prometheus:2.2.3
     - kubernetes-credentials-provider:1.211.vc236a_f5a_2f3c
