@@ -9,7 +9,7 @@ RUN go mod init main.go && go build -o /app/helloworld
 # state: 2
 FROM scratch
 
-LABEL key="hellworld"
+LABEL maintainer="ysucxh@163.com"
 
 COPY --from=builder /app/helloworld /app/helloworld
 
