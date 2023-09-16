@@ -4,7 +4,7 @@ FROM golang:1.21.0 AS builder
 
 WORKDIR /app
 COPY . .
-RUN go mod init main.go && go build -o helloworld
+RUN go mod init main && go build -o helloworld
 
 # state: 2
 FROM scratch
