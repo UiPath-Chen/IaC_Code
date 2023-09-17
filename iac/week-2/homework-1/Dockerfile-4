@@ -1,10 +1,10 @@
 # syntax=docker/dockerfile:1
 FROM golang:1.17 as builder
-WORKDIR /app
+WORKDIR /opt/app
 COPY . .
 RUN go mod init main && go build -o example
 
 FROM alpine:latest
-WORKDIR /app
-COPY --from=builder /app/example ./example
-CMD ["/app/example"]
+WORKDIR /opt/app
+COPY --from=builder /opt/app/example ./example
+CMD ["/opt/app/example"]
