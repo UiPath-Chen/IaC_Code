@@ -9,3 +9,6 @@ IaC 是 Infrastructure as Code 的缩写，意为基础设施即代码。本仓�
 # License
 
 本仓库中的内容，除特别声明外，均采用 Business Source License 1.1 授权方式使用。
+
+# upstream
+https://github.com/devops-advanced-camp/code
