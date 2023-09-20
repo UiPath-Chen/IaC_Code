@@ -15,7 +15,7 @@ make
 #                         - before=(<image-name>[:tag]|<image-id>|<image@digest>)
 #                         - since=(<image-name>[:tag]|<image-id>|<image@digest>)
 #                         - reference=(pattern of an image reference)
-# 
+#
 # -q, --quiet            Only show image IDs
 docker images --filter=label=maintainer=ysucxh@163.com
 
@@ -30,3 +30,7 @@ docker run dockerkeystone/helloworld:v1.0
 >hello world
 ```
 
+## 跨平台发布
+```bash
+make release
+```
