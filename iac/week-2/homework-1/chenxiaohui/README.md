@@ -32,7 +32,12 @@ docker run dockerkeystone/helloworld:v1.0
 
 ## 跨平台发布
 ```bash
+# 登录dockerhub
 docker login
+
+# 创建本地buildkitd容器实例
 docker buildx create --use
+
+# 构建&发布到hub.docker
 make release
 ```
