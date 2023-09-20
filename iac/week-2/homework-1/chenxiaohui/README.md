@@ -32,5 +32,7 @@ docker run dockerkeystone/helloworld:v1.0
 
 ## 跨平台发布
 ```bash
+docker login
+docker buildx create --use
 make release
 ```
