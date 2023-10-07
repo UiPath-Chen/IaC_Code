@@ -96,7 +96,7 @@ namespace Worker
             command.CommandText = @"CREATE TABLE IF NOT EXISTS votes (
                                         id VARCHAR(255) NOT NULL UNIQUE,
                                         vote VARCHAR(255) NOT NULL
-                                    )";
+                                    )";  // 初始化数据库表结构
             command.ExecuteNonQuery();
 
             return connection;

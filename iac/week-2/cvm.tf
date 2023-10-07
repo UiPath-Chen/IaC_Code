@@ -48,14 +48,18 @@ resource "null_resource" "connect_cvm" {
   }
 }
 
+
+
+
+
+output "kube_config_cluster" {
+  value = nonsensitive(module.k3s.kube_config)
+}
+
 output "cvm_public_ip" {
   value = module.cvm.public_ip
 }
 
 output "ssh_password" {
   value = var.password
-}
-
-output "kube_config_cluster" {
-  value = nonsensitive(module.k3s.kube_config)
 }

@@ -8,6 +8,7 @@ import logging
 
 option_a = os.getenv('OPTION_A', "Cats")
 option_b = os.getenv('OPTION_B', "Dogs")
+redis_host = os.getenv('REDIS_HOST', "redis")
 hostname = socket.gethostname()
 
 app = Flask(__name__)
@@ -18,9 +19,10 @@ app.logger.setLevel(logging.INFO)
 
 def get_redis():
     if not hasattr(g, 'redis'):
-        g.redis = Redis(host="redis", db=0, socket_timeout=5)
+        g.redis = Redis(host=redis_host, db=0, socket_timeout=5)
     return g.redis
 
+# 不处理具体逻辑，服务端接收POST/GET请求后，将vote for的结果，直接push给redis
 @app.route("/", methods=['POST','GET'])
 def hello():
     voter_id = request.cookies.get('voter_id')
@@ -46,6 +48,9 @@ def hello():
     resp.set_cookie('voter_id', voter_id)
     return resp
 
+@app.route("/healthz")
+def healthz():
+    return "OK"
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80, debug=True, threaded=True)

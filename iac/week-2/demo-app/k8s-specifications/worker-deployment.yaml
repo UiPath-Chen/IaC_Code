@@ -14,6 +14,13 @@ spec:
       labels:
         app: worker
     spec:
+      initContainers:
+      - name: wait-for-service-db
+        image: ghcr.io/groundnuty/k8s-wait-for:v2.0
+        imagePullPolicy: Always
+        args:
+        - "service"
+        - "-lapp=db"
       containers:
       - image: dockersamples/examplevotingapp_worker
         name: worker

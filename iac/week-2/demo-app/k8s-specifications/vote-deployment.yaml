@@ -14,9 +14,36 @@ spec:
       labels:
         app: vote
     spec:
+      initContainers:
+      - name: wait-for-pod-worker
+        image: ghcr.io/groundnuty/k8s-wait-for:v2.0
+        imagePullPolicy: Always
+        args:
+        - "pod"
+        - "-lapp=worker"
       containers:
-      - image: dockersamples/examplevotingapp_vote
-        name: vote
+      - name: vote
+        # image: dockersamples/examplevotingapp_vote
+        image: dockerkeystone/vote:v1
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 1000m        # 超卖 - burstable
+            memory: 1000Mi    #
         ports:
         - containerPort: 80
           name: vote
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          failureThreshold: 3
+          successThreshold: 1
+          timeoutSeconds: 1
+        envFrom:
+        - configMapRef:
+            name: vote-redis-configmap

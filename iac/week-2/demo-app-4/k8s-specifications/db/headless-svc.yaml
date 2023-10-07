@@ -5,6 +5,7 @@ metadata:
 spec:
   type: ClusterIP
   # K8s 无头服务，不需要负载均衡，不需要 clusterIP，并且可以通过 pod-name.svc-name.default.svc.cluster.local 来访问到特定的 Pod.
+  # 类似DNS
   clusterIP: None
   ports:
     - name: postgresql

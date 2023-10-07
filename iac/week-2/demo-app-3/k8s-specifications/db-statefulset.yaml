@@ -5,7 +5,7 @@ metadata:
     app: db
   name: db
 spec:
-  replicas: 1
+  replicas: 3   # 如果ds名字未db, 那么pod的名字未db-0, db-1, db-2; 主从；结合headless；Pod名称稳定，可以获得稳定的Pod DNS
   selector:
     matchLabels:
       app: db
@@ -61,7 +61,7 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               name: db-data
-  volumeClaimTemplates:
+  volumeClaimTemplates:   # 首先配置storageclass; 然后ds自当创建PV/PVC; 使用动态卷的供应解决持久化
     - metadata:
         name: db-data
       spec:

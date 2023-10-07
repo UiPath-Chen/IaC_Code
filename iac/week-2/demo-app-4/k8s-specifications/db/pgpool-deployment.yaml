@@ -17,6 +17,7 @@ spec:
       containers:
         - name: pgpool
           image: docker.io/bitnami/pgpool:4.2.3-debian-10-r38
+          imagePullPolicy: "IfNotPresent"
           resources:
             requests:
               memory: "256Mi"
@@ -24,7 +25,6 @@ spec:
             limits:
               memory: "256Mi"
               cpu: "300m"
-          imagePullPolicy: "IfNotPresent"
           securityContext:
             runAsUser: 1001
           env:

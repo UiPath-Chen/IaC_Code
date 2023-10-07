@@ -14,9 +14,26 @@ spec:
       labels:
         app: db
     spec:
+      initContainers:
+      # - name: sleep # 模拟PG启动缓慢时，result是否可以正常启动
+      #   image: busybox
+      #   command: ["/bin/sh", "-c", "sleep 1m"]
+      - name: wait-for-service-redis
+        image: ghcr.io/groundnuty/k8s-wait-for:v2.0
+        imagePullPolicy: Always
+        args:
+        - "service"
+        - "-lapp=redis"
       containers:
       - image: postgres:15-alpine
         name: postgres
+        resources:
+          requests:
+            memory: 64Mi
+            cpu: 250m
+          limits:
+            memory: 128Mi
+            cpu: 500m
         env:
         - name: POSTGRES_USER
           value: postgres
@@ -25,9 +42,17 @@ spec:
         ports:
         - containerPort: 5432
           name: postgres
+        readinessProbe:
+          exec:
+            command:
+              - pg_isready
+              - -U
+              - $POSTGRES_USER
+              - -d
+              - $POSTGRES_USER
         volumeMounts:
         - mountPath: /var/lib/postgresql/data
           name: db-data
       volumes:
       - name: db-data
-        emptyDir: {} 
+        emptyDir: {}

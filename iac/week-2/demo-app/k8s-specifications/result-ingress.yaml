@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: result
+  labels:
+    name: result
+spec:
+  rules:
+  - host: result.demo.local
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: result
+            port:
+              number: 5001
+  ingressClassName: nginx           # 可以部署多个nginx实例，设置nginx-1/nginx-2

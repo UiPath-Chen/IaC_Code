@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Install Docker
 sudo apt-get update
 sudo apt-get install ca-certificates curl gnupg -y
 sudo install -m 0755 -d /etc/apt/keyrings
@@ -22,3 +23,11 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 
 mkdir /tmp/rootfs
 tar -xf /tmp/rootfs.tar -C /tmp/rootfs
+
+
+# install ingress-nginx
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+helm upgrade --install ingress-nginx ingress-nginx \
+  --repo https://kubernetes.github.io/ingress-nginx \
+  --namespace ingress-nginx --create-namespace

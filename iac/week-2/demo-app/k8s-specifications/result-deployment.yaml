@@ -14,9 +14,47 @@ spec:
       labels:
         app: result
     spec:
+      volumes:
+      - name: result-db-secret      # secret name == volume name
+        secret:                     # secret key == volume subpath
+          secretName: result-db-secret
+      initContainers:
+      - name: wait-for-service-vote
+        image: ghcr.io/groundnuty/k8s-wait-for:v2.0
+        imagePullPolicy: Always
+        args:
+        - "service"
+        - "-lapp=vote"
       containers:
-      - image: dockersamples/examplevotingapp_result
-        name: result
+      - name: result
+        # image: dockersamples/examplevotingapp_result
+        image: dockerkeystone/result:v1
+        # image: dockerkeystone/result:remote-retry
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 1000m        # 超卖
+            memory: 1000Mi    #
         ports:
         - containerPort: 80
           name: result
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          failureThreshold: 3
+          successThreshold: 1
+          timeoutSeconds: 1
+        volumeMounts:
+        - name: result-db-secret
+          # 避免容器内 /app 目录下所有的文件被覆盖
+          subPath: .env
+          mountPath: /app/.env
+          readOnly: true
+
+
