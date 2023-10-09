@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: vote
+  name: vote
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vote
+  template:
+    metadata:
+      labels:
+        app: vote
+    spec:
+      initContainers:
+      - name: wait-for-pod-worker
+        image: ghcr.io/groundnuty/k8s-wait-for:v2.0
+        imagePullPolicy: Always
+        args:
+        - "pod"
+        - "-lapp=worker"
+      containers:
+      - name: vote
+        # image: dockersamples/examplevotingapp_vote
+        image: "{{ .Values.VOTE.IMAGE }}:{{ .Values.VOTE.TAG }}"
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 1000m        # 超卖 - burstable
+            memory: 1000Mi    #
+        ports:
+        - containerPort: 80
+          name: vote
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          failureThreshold: 3
+          successThreshold: 1
+          timeoutSeconds: 1
+        envFrom:
+        - configMapRef:
+            name: vote-redis-configmap

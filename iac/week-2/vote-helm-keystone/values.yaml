@@ -1,0 +1,45 @@
+HOST:
+  demo.local
+
+DB:
+  DB_USER: postgres
+  DB_PASS: postgres
+  DB_HOST: db-pgpool
+  DB_NAME: postgres
+
+REDIS:
+  HOST: redis-master
+
+RESULT:
+  IMAGE: lyzhang1999/result
+  TAG: env
+
+OPTION:
+  OPTION_A: Info
+  OPTION_B: GeekBang
+
+VOTE:
+  IMAGE: lyzhang1999/vote
+  TAG: env
+
+WORKER:
+  IMAGE: lyzhang1999/worker
+  TAG: env
+
+
+redis:
+  enabled: true     # 若生成环境使用云产品，这里可以设置false
+  fullnameOverride: redis
+  auth:
+    enabled: false
+
+postgresql-ha:
+  enabled: true
+  fullnameOverride: db
+  global:
+    postgresql:
+      username: postgres
+      password: postgres
+      database: postgres
+      repmgrUsername: postgres
+      repmgrPassword: postgres
