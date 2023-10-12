@@ -44,8 +44,8 @@ resource "tencentcloud_instance" "ubuntu" {
   system_disk_type           = "CLOUD_SSD"
   system_disk_size           = 100
   hostname                   = "${var.instance_name}-${count.index}"
-  vpc_id                     = tencentcloud_vpc.tf_vpc.id
-  subnet_id                  = tencentcloud_subnet.tf_service_subnet.id
+  vpc_id                     = length(var.vpc_id) > 0 ? var.vpc_id : tencentcloud_vpc.tf_vpc.id
+  subnet_id                  = length(var.subnet_id) > 0 ? var.subnet_id : tencentcloud_subnet.tf_service_subnet.id
   instance_charge_type       = var.instance_charge_type
   internet_max_bandwidth_out = 100
   allocate_public_ip         = true

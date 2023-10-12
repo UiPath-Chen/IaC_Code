@@ -68,3 +68,11 @@ variable "cpu" {
 variable "memory" {
   default = "8"
 }
+
+variable "vpc_id" {
+  default = ""
+}
+
+variable "subnet_id" {
+  default = ""
+}
