@@ -6,6 +6,7 @@ spec:
   params:
     - name: git_url
     - name: commit_id
+    - name: microservice
   resourcetemplates:
     - apiVersion: tekton.dev/v1
       kind: PipelineRun
@@ -18,6 +19,14 @@ spec:
         pipelineRef:
           name: github-pipeline
         workspaces:
+          # - name: output
+          #   volumeClaimTemplate:
+          #     spec:
+          #       accessModes:
+          #         - ReadWriteOnce
+          #       resources:
+          #         requests:
+          #           storage: 50Mi
           - name: output
             persistentVolumeClaim:
               claimName: pipeline-pvc
@@ -32,7 +41,7 @@ spec:
           - name: git_url
             value: $(tt.params.git_url) # 注意：$tt 开头，从 EventListener binding params 获取
           - name: microservice
-            value: "result"
+            value: $(tt.params.microservice)
           - name: git_repository
             value: "vote"
           - name: commit_id
