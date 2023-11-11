@@ -9,7 +9,7 @@ terraform {
 
 # Configure the TencentCloud Provider
 provider "tencentcloud" {
-  region = "ap-guangzhou"
+  region = "na-siliconvalley"
 }
 
 # Get availability zones
