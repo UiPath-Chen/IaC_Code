@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/gitkeystone/IaC_Code.git
     targetRevision: HEAD
-    path: iac/week-4/demo-9/yaml2infra
+    path: iac/week-4/demo-10/yaml2infra
   destination:
     server: https://kubernetes.default.svc
     namespace: yaml2infra

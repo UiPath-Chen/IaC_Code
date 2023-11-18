@@ -6,9 +6,9 @@ metadata:
   labels:
     argocd.argoproj.io/secret-type: repository
 stringData:
-  url: https://github.com/devops-advanced-camp/code.git
-  password: "" # your github personal access token
-  username: lyzhang1999
+  url: https://github.com/gitkeystone/IaC_Code.git
+  password: "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" # your github personal access token
+  username: gitkeystone
   insecure: "true"
   forceHttpBasicAuth: "true"
   enableLfs: "true"

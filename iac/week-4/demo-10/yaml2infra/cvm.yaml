@@ -8,7 +8,7 @@ spec:
     module: |
       data "tencentcloud_availability_zones_by_product" "default" {
         product = "cvm"
-      }
+       }
 
       # Get availability images
       data "tencentcloud_images" "default" {
