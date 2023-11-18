@@ -14,6 +14,8 @@ variable "password" {
   default = "password123"
 }
 
-
-
-
+variable "cvm_name" {
+  type        = string
+  default     = ""
+  description = "Name of CVM Instance."
+}

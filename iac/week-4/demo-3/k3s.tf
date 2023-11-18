@@ -16,11 +16,11 @@ module "k3s" {
     "k3s" = {
       ip = tencentcloud_instance.web[0].private_ip
       connection = {
-        timeout  = "60s"
-        type     = "ssh"
         host     = tencentcloud_instance.web[0].public_ip
-        password = var.password
+        type     = "ssh"
         user     = "ubuntu"
+        password = var.password
+        timeout  = "60s"
       }
     }
   }
@@ -28,5 +28,5 @@ module "k3s" {
 
 resource "local_sensitive_file" "kubeconfig" {
   content  = module.k3s.kube_config
-  filename = "${path.module}/config.yaml"
+  filename = "${path.module}/config"
 }

@@ -6,3 +6,4 @@ resource "helm_release" "crossplane" {
   namespace        = "crossplane-system"
   create_namespace = true
 }
+

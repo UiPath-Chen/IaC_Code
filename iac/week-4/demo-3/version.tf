@@ -3,7 +3,7 @@ terraform {
   required_providers {
     tencentcloud = {
       source  = "tencentcloudstack/tencentcloud"
-      version = "1.81.5"
+      version = "~> 1.81.5"
     }
 
     helm = {
@@ -13,8 +13,4 @@ terraform {
   }
 }
 
-provider "helm" {
-  kubernetes {
-    config_path = local_sensitive_file.kubeconfig.filename
-  }
-}
+

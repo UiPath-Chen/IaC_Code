@@ -1,3 +1,9 @@
+provider "helm" {
+  kubernetes {
+    config_path = local_sensitive_file.kubeconfig.filename
+  }
+}
+
 resource "helm_release" "argo_cd" {
   depends_on       = [module.k3s]
   name             = "argocd"

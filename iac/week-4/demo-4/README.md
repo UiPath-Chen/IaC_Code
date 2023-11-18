@@ -9,7 +9,7 @@ $ export TF_VAR_secret_key=
 
 2. 初始化并应用
 
-```bash 
+```bash
 $ terraform init
 $ terraform apply
 ```
@@ -17,7 +17,7 @@ $ terraform apply
 
 ## 访问 Argo CD
 1. 设置 KUBECONFIG 环境变量
-    
+
 ```bash
 $ export KUBECONFIG="$(pwd)/config.yaml"
 ```
@@ -31,7 +31,7 @@ $ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.p
 1. 端口转发
 
 ```bash
-$ kubectl port-forward svc/argocd-server -n argocd 8080:80
+$ kubectl -n argocd port-forward svc/argocd-server  8080:80
 ```
 1. 访问 Dashboard
 

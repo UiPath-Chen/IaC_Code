@@ -35,7 +35,7 @@ generate "provider" {
   if_exists = "overwrite_terragrunt"
   contents  = <<EOF
 provider "tencentcloud" {
-    region = "ap-guangzhou"
+    region = "ap-hongkong"
     secret_id = "${local.secret_id}"
     secret_key = "${local.secret_key}"
 }

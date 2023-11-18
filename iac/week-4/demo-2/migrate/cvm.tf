@@ -2,22 +2,24 @@ terraform {
   required_providers {
     tencentcloud = {
       source = "tencentcloudstack/tencentcloud"
+      version = "~> 1.0" # v1.81.45
     }
   }
 }
 
-# terraform {
-#   backend "cos" {
-#     region  = "ap-guangzhou"
-#     bucket  = "terraform-state-1301578102"
-#     prefix  = "terraform/state"
-#     encrypt = true
-#   }
-# }
+# Migration
+terraform {
+  backend "cos" {
+    region  = "na-siliconvalley"
+    bucket  = "terraform-state-1320728301"
+    prefix  = "terraform/state"
+    encrypt = true
+  }
+}
 
 # Configure the TencentCloud Provider
 provider "tencentcloud" {
-  region = "ap-guangzhou"
+  region = "na-siliconvalley"
 }
 
 # Get availability zones
@@ -77,17 +79,3 @@ resource "tencentcloud_security_group_lite_rule" "default" {
     "ACCEPT#0.0.0.0/0#ALL#ALL"
   ]
 }
-
-
-# COS
-# data "tencentcloud_user_info" "info" {}
-
-# locals {
-#   app_id = data.tencentcloud_user_info.info.app_id
-# }
-
-# resource "tencentcloud_cos_bucket" "terraform-state" {
-#   bucket               = "terraform-state-${local.app_id}"
-#   acl                  = "private"
-#   encryption_algorithm = "AES256"
-# }
