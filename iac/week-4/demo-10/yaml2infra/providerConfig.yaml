@@ -14,8 +14,8 @@ spec:
 
     provider "tencentcloud" {
       # edit me
-      secret_id  = ""
-      secret_key = ""
+      secret_id  = "AKIDmRs481znQq34sWzHMEtLcnpOp9GBvfHi"
+      secret_key = "LWVL1Xr0xlMkuthNuLbjokT1VxGSVQ9y"
       region     = "ap-hongkong"
     }
 
