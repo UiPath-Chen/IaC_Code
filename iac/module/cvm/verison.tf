@@ -4,6 +4,7 @@ terraform {
     tencentcloud = {
       source  = "tencentcloudstack/tencentcloud"
       version = "1.81.5"
+      # version = "~> 1.0"
     }
   }
 }

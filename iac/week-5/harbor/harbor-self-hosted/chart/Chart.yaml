@@ -6,21 +6,24 @@ version: 0.1.0
 appVersion: "0.1.0"
 
 dependencies:
-  - name: redis
+  - name: redis                                               # Reids(HA)
     version: "17.16.0"
     repository: "oci://registry-1.docker.io/bitnamicharts"
     condition: redis.enabled
     tags:
       - middleware
-  - name: postgresql-ha
+  - name: postgresql-ha                                        # PG(HA)
     version: "11.9.0"
     repository: "oci://registry-1.docker.io/bitnamicharts"
     condition: postgresql-ha.enabled
     tags:
       - middleware
-  - name: harbor
+  - name: harbor                                               # Harbor
     version: "1.13.0"
     repository: "https://helm.goharbor.io"
     condition: harbor.enabled
     tags:
       - harbor
+
+
+

@@ -1,11 +1,13 @@
 # change me!
 variable "prefix" {
-  default = "wangwei"
+  # default = "wangwei"
+  default = "keystone"
 }
 
 # if free cert reach limit, change me!
 variable "domain" {
   default = "devopscamp.us"
+  # default = "upcloud.com"
 }
 
 variable "secret_id" {
@@ -24,3 +26,4 @@ variable "region" {
 variable "password" {
   default = "password123"
 }
+

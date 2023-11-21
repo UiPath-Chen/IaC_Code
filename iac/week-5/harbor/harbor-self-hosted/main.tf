@@ -22,6 +22,18 @@ module "cloudflare" {
   values = ["harbor"]
 }
 
+module "k3s" {
+  source      = "../../../module/k3s"
+  public_ip   = module.cvm.public_ip
+  private_ip  = module.cvm.private_ip
+  server_name = "k3s-hongkong-1"
+}
+
+resource "local_sensitive_file" "kubeconfig" {
+  content  = module.k3s.kube_config
+  filename = "${path.module}/config.yaml"
+}
+
 resource "null_resource" "connect_ubuntu" {
   depends_on = [module.k3s]
   connection {
@@ -74,14 +86,4 @@ resource "null_resource" "connect_ubuntu" {
   }
 }
 
-module "k3s" {
-  source      = "../../../module/k3s"
-  public_ip   = module.cvm.public_ip
-  private_ip  = module.cvm.private_ip
-  server_name = "k3s-hongkong-1"
-}
 
-resource "local_sensitive_file" "kubeconfig" {
-  content  = module.k3s.kube_config
-  filename = "${path.module}/config.yaml"
-}

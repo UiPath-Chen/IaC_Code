@@ -1,6 +1,7 @@
 # change me!
 variable "prefix" {
-  default = "wangwei"
+  # default = "wangwei"
+  default = "keystone"
 }
 
 # if free ssl cert reach limit, change me!

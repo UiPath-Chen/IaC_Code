@@ -1,28 +1,28 @@
 harbor:
   enabled: true
-  persistence:
+  persistence:                                      # PVC-持久化
     persistentVolumeClaim:
       registry:
         size: 20Gi
   externalURL: https://harbor.${prefix}.${domain}
-  redis:
+  redis:                                            # Redis_Client(external-外部的、现有的、已存在的)
     type: external
     external:
       addr: "redis-master"
-  database:
+  database:                                         # DB_Client(external-外部的、现有的、已存在的)
     type: external
     external:
       host: "db-pgpool"
       username: "postgres"
       password: "postgres"
   expose:
-    tls:
+    tls:                                            # TLS认证
       enabled: true
       certSource: secret
       secret:
         secretName: harbor-secret-tls
         notarySecretName: notary-secret-tls
-    ingress:
+    ingress:                                        # Ingress
       className: nginx
       annotations:
         kubernetes.io/tls-acme: "true"
@@ -30,6 +30,7 @@ harbor:
       hosts:
         core: harbor.${prefix}.${domain}
         notary: notary.${prefix}.${domain}
+  # HA
   portal:
     replicas: 2
   core:
@@ -41,13 +42,13 @@ harbor:
   chartmuseum:
     replicas: 2
 
-redis:
+redis:                                                  # Redis_Server
   enabled: true
   fullnameOverride: redis
   auth:
     enabled: false
 
-postgresql-ha:
+postgresql-ha:                                          # DB_Server
   enabled: true
   fullnameOverride: db
   global:

@@ -1,4 +1,4 @@
-#!/bin/bash  
+#!/bin/bash
 
 # helm
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
@@ -33,3 +33,7 @@ mv /tmp/values.yaml /tmp/charts/values.yaml
 cd /tmp/charts
 helm dependencies update
 helm install harbor . --namespace harbor --create-namespace
+
+
+
+
