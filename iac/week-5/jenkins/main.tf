@@ -88,6 +88,17 @@ resource "null_resource" "connect_ubuntu" {
   }
 
   provisioner "file" {
+    destination = "/tmp/sonar-url-secret.yaml"
+    content = templatefile(
+      "${path.module}/yaml/sonar-url.yaml.tpl",
+      {
+        "prefix" : "${var.prefix}"
+        "domain" : "${var.domain}"
+      }
+    )
+  }
+
+  provisioner "file" {
     destination = "/tmp/tekton-dashboard-ingress.yaml"
     content = templatefile(
       "${path.module}/yaml/tekton-dashboard-ingress.yaml.tpl",
@@ -157,7 +168,7 @@ module "k3s" {
 }
 
 resource "local_sensitive_file" "kubeconfig" {
-  content  = module.k3s.kube_config
+  content  = replace(module.k3s.kube_config, "local", var.cluster_name)
   filename = "${path.module}/config.yaml"
 }
 

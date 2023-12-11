@@ -30,7 +30,7 @@ module "k3s" {
 }
 
 resource "local_sensitive_file" "kubeconfig" {
-  content  = module.k3s.kube_config
+  content  = replace(module.k3s.kube_config, "local", var.cluster_name)
   filename = "${path.module}/config.yaml"
 }
 

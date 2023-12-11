@@ -11,7 +11,8 @@ variable "domain" {
 
 # change me!
 variable "github_username" {
-  default = "lyzhang1999"
+  # default = "lyzhang1999"
+  default = "gitkeystone"
 }
 
 # change me!
@@ -40,4 +41,10 @@ variable "password" {
 
 variable "harbor_password" {
   default = "Harbor12345"
+}
+
+variable "cluster_name" {
+  type = string
+  description = "(optional) describe your variable"
+  default = "Jenkins"
 }

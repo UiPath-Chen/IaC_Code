@@ -6,7 +6,7 @@ provider "tencentcloud" {
 
 data "tencentcloud_images" "default" {
   image_type = ["PUBLIC_IMAGE"]
-  os_name    = "ubuntu"
+  os_name    = var.os_name
 }
 
 data "tencentcloud_instance_types" "default" {
@@ -34,7 +34,7 @@ data "tencentcloud_availability_zones_by_product" "default" {
 # }
 
 # Create a web server without public ip
-resource "tencentcloud_instance" "ubuntu" {
+resource "tencentcloud_instance" "platform" {
   instance_name = "${var.instance_name}-${count.index}"
   #name  = "neo.${count.index}"
   availability_zone = var.availability_zone

@@ -871,11 +871,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/root/IaC_Code/iac/week-2/demo-app/worker/Worker.csproj",
+      "projectUniqueName": "/root/iac-code/iac/week-2/demo-app/worker/Worker.csproj",
       "projectName": "Worker",
-      "projectPath": "/root/IaC_Code/iac/week-2/demo-app/worker/Worker.csproj",
+      "projectPath": "/root/iac-code/iac/week-2/demo-app/worker/Worker.csproj",
       "packagesPath": "/root/.nuget/packages/",
-      "outputPath": "/root/IaC_Code/iac/week-2/demo-app/worker/obj/",
+      "outputPath": "/root/iac-code/iac/week-2/demo-app/worker/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/root/.nuget/NuGet/NuGet.Config"
@@ -926,20 +926,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[7.0.14, 7.0.14]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.linux-x64",
-            "version": "[7.0.14, 7.0.14]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[7.0.14, 7.0.14]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"

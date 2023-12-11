@@ -1,4 +1,4 @@
-#!/bin/bash  
+#!/bin/bash
 
 # helm
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
@@ -21,6 +21,7 @@ kubectl create ns jenkins
 kubectl apply -f /tmp/jenkins-service-account.yaml -n jenkins
 
 # harbor image pull secret
+# -- regcred: registry credentials 注册中心的凭据
 kubectl create secret docker-registry regcred --docker-server=harbor.${prefix}.${domain} --docker-username=admin --docker-password=${harbor_password} -n jenkins
 
 # harbor url secret
@@ -29,7 +30,7 @@ kubectl apply -f /tmp/harbor-url-secret.yaml -n jenkins
 # jenkins github personal access token
 kubectl apply -f /tmp/github-personal-token.yaml -n jenkins
 
-# jenkins github server(system) pat secret
+# jenkins github server(system) pat secret(pat-person access token)
 kubectl apply -f /tmp/github-pat-secret-text.yaml -n jenkins
 
 # install jenkins helm
@@ -38,6 +39,9 @@ helm upgrade -i jenkins jenkins/jenkins -n jenkins --create-namespace -f /tmp/je
 # install sonarqube
 helm repo add sonarqube https://SonarSource.github.io/helm-chart-sonarqube
 helm upgrade --install -n sonarqube sonarqube sonarqube/sonarqube --create-namespace --version 10.1.0+628 -f /tmp/sonar-values.yaml
+
+# sonar url secret
+kubectl apply -f /tmp/sonar-url-secret.yaml -n jenkins
 
 # apply tekton ingress
 kubectl create ns tekton-pipelines

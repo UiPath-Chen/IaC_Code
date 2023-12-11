@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3haoT6BKxlXNpZhN8Hzn7XqQZFgn0bpj4dNpvdz+tNV62HPOFgO5Nr29pc3pdCyrJLYK6G5zMMIbFrcGVkEF+Q==",
+  "dgSpecHash": "Re1m5roIP+NDwZpop8lScOezfIRrerhVAO9dhtvNfsFOnhQwfHSIEvmOH7PEj+zfv1t74C0Rt+mBRBRVWSbMwA==",
   "success": true,
-  "projectFilePath": "/root/IaC_Code/iac/week-2/demo-app-wait-for-flow/worker/Worker.csproj",
+  "projectFilePath": "/root/iac-code/iac/week-2/demo-app-wait-for-flow/worker/Worker.csproj",
   "expectedPackageFiles": [
     "/root/.nuget/packages/microsoft.netcore.platforms/5.0.0/microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "/root/.nuget/packages/microsoft.win32.registry/5.0.0/microsoft.win32.registry.5.0.0.nupkg.sha512",
@@ -20,10 +20,7 @@
     "/root/.nuget/packages/system.security.cryptography.protecteddata/5.0.0/system.security.cryptography.protecteddata.5.0.0.nupkg.sha512",
     "/root/.nuget/packages/system.security.permissions/5.0.0/system.security.permissions.5.0.0.nupkg.sha512",
     "/root/.nuget/packages/system.security.principal.windows/5.0.0/system.security.principal.windows.5.0.0.nupkg.sha512",
-    "/root/.nuget/packages/system.windows.extensions/5.0.0/system.windows.extensions.5.0.0.nupkg.sha512",
-    "/root/.nuget/packages/microsoft.netcore.app.ref/7.0.14/microsoft.netcore.app.ref.7.0.14.nupkg.sha512",
-    "/root/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.14/microsoft.aspnetcore.app.ref.7.0.14.nupkg.sha512",
-    "/root/.nuget/packages/microsoft.netcore.app.host.linux-x64/7.0.14/microsoft.netcore.app.host.linux-x64.7.0.14.nupkg.sha512"
+    "/root/.nuget/packages/system.windows.extensions/5.0.0/system.windows.extensions.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

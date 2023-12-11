@@ -27,3 +27,8 @@ variable "password" {
   default = "password123"
 }
 
+variable "cluster_name" {
+  type = string
+  description = "cluster's name"
+  default = "Harbor"
+}

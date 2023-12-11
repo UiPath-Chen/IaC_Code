@@ -24,3 +24,7 @@ output "harbor_url" {
 output "tekton_url" {
   value = "http://tekton.${var.prefix}.${var.domain}, (not ready yet)"
 }
+
+output "sonarqube_url" {
+  value = "http://sonar.${var.prefix}.${var.domain}, admin, password123"
+}

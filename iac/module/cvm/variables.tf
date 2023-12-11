@@ -8,6 +8,11 @@ variable "secret_key" {
   default = "Your Access Key"
 }
 
+variable "os_name" {
+  description = "platform"
+  default     = "ubuntu"
+}
+
 variable "region" {
   description = "The location where instacne will be created"
   default     = "ap-hongkong"
