@@ -11,7 +11,7 @@ spec:
     - name: git_url
     # git repository name
     - name: git_repository
-      default: "vote"
+      default: "vote-app"
     # microservice name(build path)
     - name: microservice
       default: "result"
@@ -67,6 +67,6 @@ spec:
           value: $(params.microservice)/Dockerfile
         - name: CONTEXT
           value: $(params.microservice)
-        - name: EXTRA_ARGS
-          value:
-            - "--insecure"
+        # - name: EXTRA_ARGS
+        #   value:
+        #     - "--insecure"

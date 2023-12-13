@@ -34,7 +34,8 @@ spec:
           workspace: sonar-credentials
       params:
         - name: SONAR_HOST_URL
-          value: "http://sonar.wangwei.devopscamp.us/"
+          # value: "http://sonar.wangwei.devopscamp.us/"
+          value: "http://sonar.keystone.devopscamp.us/"
         - name: SONAR_PROJECT_KEY
           value: result
         - name: SOURCE_TO_SCAN
@@ -54,11 +55,12 @@ spec:
           workspace: docker-credentials
       params:
         - name: IMAGE
-          value: harbor.wangwei.devopscamp.us/vote/result:latest
+          # value: harbor.wangwei.devopscamp.us/vote/result:latest
+          value: harbor.keystone.devopscamp.us/vote-app/result:latest
         - name: DOCKERFILE
           value: result/Dockerfile
         - name: CONTEXT
           value: result
-        - name: EXTRA_ARGS
-          value:
-            - "--insecure"
+        # - name: EXTRA_ARGS
+        #   value:
+        #     - "--insecure"

@@ -4,12 +4,14 @@ metadata:
   name: run-git-clone
 spec:
   # 在安装 jenkins 时已经提前部署了 serviceaccount
+  # iac/week-5/jenkins/yaml/tekton-git-repositry-secret.yaml.tpl
   serviceAccountName: build-bot
   taskRef:
     name: git-clone
   params:
     - name: url
-      value: "https://github.com/devops-advanced-camp/vote.git"
+      # value: "https://github.com/devops-advanced-camp/vote.git"
+      value: "https://github.com/gitkeystone/vote-app.git"
   workspaces:
     - emptyDir: {}
       name: output

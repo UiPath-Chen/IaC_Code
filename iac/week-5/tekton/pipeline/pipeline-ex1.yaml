@@ -4,16 +4,16 @@ metadata:
   name: github-pipeline-ex1
 spec:
   workspaces:
-    - name: output
+    - name: output        # 定义pipeline行参：共享目录
   params:
-    - name: git_url
+    - name: git_url       # 定义pipelineRun行参：Git Repo
   tasks:
     - name: git-clone
       taskRef:
         name: git-clone
       workspaces:
-        - name: output
-          workspace: output
+        - name: output      # 挂载点
+          workspace: output # 挂载目标，指的是上面pipeline定义的workspaces
       params:
         - name: url
           # 指向 pipeline 定义的 git_url 参数

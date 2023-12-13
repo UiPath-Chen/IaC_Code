@@ -10,7 +10,8 @@ spec:
     name: github-pipeline-ex3
   params:
     - name: git_url
-      value: "https://github.com/devops-advanced-camp/vote.git"
+      # value: "https://github.com/devops-advanced-camp/vote.git"
+      value: "https://github.com/gitkeystone/vote-app.git"
   workspaces:
     - name: output
       persistentVolumeClaim:

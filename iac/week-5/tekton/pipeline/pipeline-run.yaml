@@ -10,15 +10,17 @@ spec:
     name: github-pipeline
   params:
     - name: git_url
-      value: "https://github.com/devops-advanced-camp/vote.git"
+      # value: "https://github.com/devops-advanced-camp/vote.git"
+      value: "https://github.com/gitkeystone/vote-app.git"
     - name: microservice
       value: "result"
     - name: git_repository
-      value: "vote"
+      value: "vote-app"
     - name: commit_id
       value: "latest"
     - name: registry_url
-      value: "harbor.wangwei.devopscamp.us"
+      # value: "harbor.wangwei.devopscamp.us"
+      value: "harbor.keystone.devopscamp.us"
   workspaces:
     # - name: output
     #   volumeClaimTemplate:

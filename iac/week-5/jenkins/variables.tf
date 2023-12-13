@@ -10,22 +10,25 @@ variable "domain" {
 }
 
 # change me!
+# Prefer: define environment variable
 variable "github_username" {
-  # default = "lyzhang1999"
-  default = "gitkeystone"
+  default = "lyzhang1999"
 }
 
 # change me!
+# Prefer: define environment variable
 variable "github_personal_token" {
   default = ""
 }
 
 # tencent cloud secret id
+# Prefer: define environment variable
 variable "secret_id" {
   default = "Your Access ID"
 }
 
 # tencent cloud secret key
+# Prefer: define environment variable
 variable "secret_key" {
   default = "Your Access Key"
 }

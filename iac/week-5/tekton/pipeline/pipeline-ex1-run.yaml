@@ -9,10 +9,11 @@ spec:
   pipelineRef:
     name: github-pipeline-ex1
   params:
-    - name: git_url
-      value: "https://github.com/devops-advanced-camp/vote.git"
+    - name: git_url               # 实参
+      # value: "https://github.com/devops-advanced-camp/vote.git"
+      value: "https://github.com/gitkeystone/vote-app.git"
   workspaces:
-    - name: output
+    - name: output                # 实参
       persistentVolumeClaim:
         claimName: pipeline-pvc
       subPath: $(context.pipelineRun.uid)

@@ -33,11 +33,17 @@ spec:
           workspace: docker-credentials
       params:
         - name: IMAGE
-          value: harbor.wangwei.devopscamp.us/vote/result:latest
+          # value: harbor.wangwei.devopscamp.us/vote/result:latest
+          value: harbor.keystone.devopscamp.us/vote-app/result:latest
         - name: DOCKERFILE
           value: result/Dockerfile
         - name: CONTEXT
           value: result
-        - name: EXTRA_ARGS
-          value:
-            - "--insecure"
+        # 如何没有SSL访问Harbor, 我们有，所以可以不用这个
+        # - name: EXTRA_ARGS
+        #   value:
+        #     - "--insecure"
+
+
+
+
