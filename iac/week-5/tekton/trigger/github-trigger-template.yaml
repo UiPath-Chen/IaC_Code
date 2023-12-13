@@ -47,4 +47,5 @@ spec:
           - name: commit_id
             value: $(tt.params.commit_id)
           - name: registry_url
-            value: "harbor.wangwei.devopscamp.us"
+            # value: "harbor.wangwei.devopscamp.us"
+            value: "harbor.keystone.devopscamp.us"
