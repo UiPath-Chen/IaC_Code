@@ -67,4 +67,3 @@ cat << EOF > /tmp/docker-credentials.json
 EOF
 kubectl create secret generic docker-credentials --from-file=config.json=/tmp/docker-credentials.json --dry-run=client -o yaml | kubectl apply -f -
 
-

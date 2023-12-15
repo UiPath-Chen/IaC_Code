@@ -5,9 +5,16 @@ variable "prefix" {
 }
 
 # if free cert reach limit, change me!
+# devopscamp.us （20230905提供）
+# gkdevopscamp.uk  （20230906提供）
+# gkdevopscamp2.com
+# devopscamp.uk
+# devopscamp.us
+# devopscamp.work
+# gkdevopscamp.com
+# gkdevopscamp.uk
 variable "domain" {
   default = "devopscamp.us"
-  # default = "upcloud.com"
 }
 
 variable "secret_id" {

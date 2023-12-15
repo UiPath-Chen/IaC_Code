@@ -1,0 +1,25 @@
+---
+- hosts: all
+  gather_facts: no
+  remote_user: ubuntu
+  become: yes
+
+  vars_files:
+    - ../vars/vars.yaml
+
+  tasks:
+    - name: ping
+      ansible.builtin.ping:
+
+    - name: add line
+      ansible.builtin.lineinfile:
+        path: "/etc/hosts"
+        line: |
+          {{ harbor_ipv4  }} harbor.keystone.devopscamp.us
+          {{ jenkins_ipv4 }} jenkins.keystone.devopscamp.us
+
+        create: true
+        state: present
+
+
+

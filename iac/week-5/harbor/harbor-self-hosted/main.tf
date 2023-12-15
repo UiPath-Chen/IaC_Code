@@ -78,6 +78,12 @@ resource "null_resource" "connect_ubuntu" {
     source      = "yaml/issuer.yaml"
   }
 
+  provisioner "file" {
+    destination = "/tmp/add_dns.sh"
+    source = ""
+
+  }
+
   provisioner "remote-exec" {
     inline = [
       "chmod +x /tmp/init.sh",
