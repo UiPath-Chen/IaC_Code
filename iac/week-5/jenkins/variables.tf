@@ -46,6 +46,10 @@ variable "harbor_password" {
   default = "Harbor12345"
 }
 
+variable "harbor_public_ipv4" {
+  default = "43.135.24.181"
+}
+
 variable "cluster_name" {
   type = string
   description = "(optional) describe your variable"

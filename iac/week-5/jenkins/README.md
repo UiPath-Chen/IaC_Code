@@ -5,3 +5,8 @@
 ### 配置github的person-access-tokens
 * variables.tf
 * 建议通过定义环境变量TF_VAR_，而不是直接在variables.tf中显示指定git's token
+
+
+### 先启动Harbor，获取IP后，才能启动Jenkins服务器
+配置Jenkins服务器的`/etc/hosts`
+
