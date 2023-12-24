@@ -1,3 +1,4 @@
+# https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
@@ -7,19 +8,19 @@ spec:
   generators:
     - pullRequest:
         github:
-          owner: devops-advanced-camp
+          owner: gitkeystone
           repo: vote
           tokenRef:
             secretName: github-token
             key: token
-        requeueAfterSeconds: 30
+        requeueAfterSeconds: 20
   template:
     metadata:
       name: "vote-pull-request-{{branch}}-{{number}}"
     spec:
       project: default
       source:
-        repoURL: "https://github.com/devops-advanced-camp/vote-helm.git"
+        repoURL: "https://github.com/gitkeystone/vote-helm.git"
         targetRevision: HEAD
         path: "demo-6"
         helm:
