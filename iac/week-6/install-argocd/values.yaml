@@ -1,14 +1,14 @@
 configs:
   secret:
-    argocdServerAdminPassword: $2a$10$.NeEDuo4qmMNzuwHBLMvDuIpvqT52TdzW.1Zg9/dDssaiSRN.xa3u #password123
+    argocdServerAdminPassword: $2a$10$.NeEDuo4qmMNzuwHBLMvDuIpvqT52TdzW.1Zg9/dDssaiSRN.xa3u # 'password123'
   cm:
-    timeout.reconciliation: 30s
+    timeout.reconciliation: 30s # Pull method: 每 30s 去仓库拉取代码
   params:
     server.insecure: true
 
 server:
   ingress:
-    enabled: true
+    enabled: true     # 启动ingress
     ingressClassName: nginx
     hosts:
-      - "argocd.wangwei.devopscamp.us"
+      - "argocd.canzhi.gkdevopscamp.com"

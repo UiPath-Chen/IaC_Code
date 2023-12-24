@@ -44,7 +44,6 @@ resource "null_resource" "connect_ubuntu" {
         "prefix" : "${var.prefix}"
         "domain" : "${var.domain}"
         "harbor_password" : "${var.harbor_password}"
-        "harbor_public_ipv4" : "${var.harbor_public_ipv4}"
       }
     )
   }

@@ -58,3 +58,4 @@ postgresql-ha:                                          # DB_Server
       database: registry
       repmgrUsername: postgres
       repmgrPassword: postgres
+

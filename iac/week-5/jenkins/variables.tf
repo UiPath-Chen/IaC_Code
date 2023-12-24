@@ -1,18 +1,22 @@
 # change me!
 variable "prefix" {
   # default = "wangwei"
-  default = "keystone"
+  # default = "keystone"
+  default = "canzhi"
 }
 
 # if free ssl cert reach limit, change me!
 variable "domain" {
-  default = "devopscamp.us"
+  # default = "devopscamp.us"
+  # default = "gkdevopscamp.uk"
+  default = "gkdevopscamp.com"
 }
 
 # change me!
 # Prefer: define environment variable
 variable "github_username" {
-  default = "lyzhang1999"
+  # default = "lyzhang1999"
+  default = "gitkeystone"
 }
 
 # change me!
@@ -21,12 +25,14 @@ variable "github_personal_token" {
   default = ""
 }
 
+# change me!
 # tencent cloud secret id
 # Prefer: define environment variable
 variable "secret_id" {
   default = "Your Access ID"
 }
 
+# change me!
 # tencent cloud secret key
 # Prefer: define environment variable
 variable "secret_key" {
@@ -44,10 +50,6 @@ variable "password" {
 
 variable "harbor_password" {
   default = "Harbor12345"
-}
-
-variable "harbor_public_ipv4" {
-  default = "43.135.24.181"
 }
 
 variable "cluster_name" {

@@ -68,7 +68,5 @@ EOF
 kubectl create secret generic docker-credentials --from-file=config.json=/tmp/docker-credentials.json --dry-run=client -o yaml | kubectl apply -f -
 
 
-# -- Append to `/etc/hosts`
-sudo tee -a /etc/hosts <<EOF
-${harbor_public_ipv4} harbor.${prefix}.${domain}
-EOF
+
+

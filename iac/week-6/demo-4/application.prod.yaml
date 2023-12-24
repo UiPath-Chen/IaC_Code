@@ -20,14 +20,14 @@ metadata:
     argocd-image-updater.argoproj.io/worker.helm.image-tag: WORKER.TAG
     argocd-image-updater.argoproj.io/worker.pull-secret: pullsecret:argocd/harbor-pull-secret
     # image list
-    argocd-image-updater.argoproj.io/image-list: result=harbor.wangwei.devopscamp.us/vote/result, vote=harbor.wangwei.devopscamp.us/vote/vote, worker=harbor.wangwei.devopscamp.us/vote/worker
+    argocd-image-updater.argoproj.io/image-list: result=harbor.canzhi.gkdevopscamp.uk/vote/result, vote=harbor.canzhi.gkdevopscamp.uk/vote/vote, worker=harbor.canzhi.gkdevopscamp.uk/vote/worker
     argocd-image-updater.argoproj.io/update-strategy: latest
     argocd-image-updater.argoproj.io/write-back-method: git
     argocd-image-updater.argoproj.io/git-branch: main
 spec:
   project: default
   source:
-    repoURL: https://github.com/devops-advanced-camp/vote-helm.git
+    repoURL: https://github.com/gitkeystone/vote-helm.git
     targetRevision: HEAD
     path: demo-4
     helm:

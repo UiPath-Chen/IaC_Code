@@ -6,10 +6,10 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: "https://github.com/devops-advanced-camp/vote-helm.git"
+        repoURL: "https://github.com/gitkeystone/vote-helm.git"
         revision: HEAD
         files:
-          - path: "demo-5/env/*/values.yaml"
+          - path: "demo-5/env/*/values.yaml" # 遍历后，生成目录名称[dev,main,staging] = path.basename
   template:
     metadata:
       name: "vote-auto-generator-{{path.basename}}"
@@ -30,14 +30,14 @@ spec:
         argocd-image-updater.argoproj.io/worker.helm.image-tag: WORKER.TAG
         argocd-image-updater.argoproj.io/worker.pull-secret: pullsecret:argocd/harbor-pull-secret
         # image list
-        argocd-image-updater.argoproj.io/image-list: result=harbor.wangwei.devopscamp.us/vote/result, vote=harbor.wangwei.devopscamp.us/vote/vote, worker=harbor.wangwei.devopscamp.us/vote/worker
+        argocd-image-updater.argoproj.io/image-list: result=harbor.canzhi.gkdevopscamp.com/vote/result, vote=harbor.canzhi.gkdevopscamp.com/vote/vote, worker=harbor.canzhi.gkdevopscamp.com/vote/worker
         argocd-image-updater.argoproj.io/update-strategy: latest
         argocd-image-updater.argoproj.io/write-back-method: git
         argocd-image-updater.argoproj.io/git-branch: main
     spec:
       project: default
       source:
-        repoURL: "https://github.com/devops-advanced-camp/vote-helm.git"
+        repoURL: "https://github.com/gitkeystone/vote-helm.git"
         targetRevision: HEAD
         path: "demo-5"
         helm:
@@ -52,3 +52,6 @@ spec:
           selfHeal: true
         syncOptions:
           - CreateNamespace=true
+
+
+

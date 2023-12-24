@@ -20,3 +20,5 @@ output "harbor_url" {
 output "harbor_login_info" {
   value = "Username: admin, Password: Harbor12345"
 }
+
+

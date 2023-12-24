@@ -7,18 +7,23 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/devops-advanced-camp/vote-helm.git
+    # repoURL: https://github.com/devops-advanced-camp/vote-helm.git
+    repoURL: https://github.com/gitkeystone/vote-helm.git
     targetRevision: HEAD
     path: demo-2
     helm:
       valueFiles:
         - values.yaml
   destination:
-    server: https://kubernetes.default.svc
+    server: https://kubernetes.default.svc # Settings -> Clusters : 部署到哪个集群
     namespace: vote-dev
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+    automated:    # 自动同步：1.拉取代码； 2.部署应用；
+      prune: true  # 砍掉，如果集群内的资源已经在Git仓库中删除，则将该资源从集群中删除
+      selfHeal: true # 自愈，对集群实时更改（kubectl )，马上触发自动同步；
     syncOptions:
-      - CreateNamespace=true
+      - CreateNamespace=true      # 自动创建域名
+
+
+
+

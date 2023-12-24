@@ -1,7 +1,8 @@
 # change me!
 variable "prefix" {
   # default = "wangwei"
-  default = "keystone"
+  # default = "keystone"
+  default = "canzhi"
 }
 
 # if free cert reach limit, change me!
@@ -14,13 +15,17 @@ variable "prefix" {
 # gkdevopscamp.com
 # gkdevopscamp.uk
 variable "domain" {
-  default = "devopscamp.us"
+  # default = "devopscamp.us"
+  # default = "gkdevopscamp.uk"
+  default = "gkdevopscamp.com"
 }
 
+# change me!
 variable "secret_id" {
   default = "Your Access ID"
 }
 
+# change me!
 variable "secret_key" {
   default = "Your Access Key"
 }

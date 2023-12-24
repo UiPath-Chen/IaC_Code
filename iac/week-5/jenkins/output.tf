@@ -28,3 +28,7 @@ output "tekton_url" {
 output "sonarqube_url" {
   value = "http://sonar.${var.prefix}.${var.domain}, admin, password123"
 }
+
+output "argocd_url" {
+  value = "http://argocd.${var.prefix}.${var.domain}, admin, password123"
+}

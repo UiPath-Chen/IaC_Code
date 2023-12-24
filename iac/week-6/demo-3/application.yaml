@@ -1,21 +1,22 @@
+# https://argocd-image-updater.readthedocs.io/en/stable/configuration/images/
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: vote-dev
   namespace: argocd
   annotations:
+    argocd-image-updater.argoproj.io/image-list: result=harbor.canzhi.gkdevopscamp.uk/vote/result
+    argocd-image-updater.argoproj.io/result.pull-secret: pullsecret:argocd/harbor-pull-secret
     argocd-image-updater.argoproj.io/result.allow-tags: regexp:^main
     argocd-image-updater.argoproj.io/result.helm.image-name: RESULT.IMAGE
     argocd-image-updater.argoproj.io/result.helm.image-tag: RESULT.TAG
-    argocd-image-updater.argoproj.io/result.pull-secret: pullsecret:argocd/harbor-pull-secret
-    argocd-image-updater.argoproj.io/image-list: result=harbor.wangwei.devopscamp.us/vote/result
-    argocd-image-updater.argoproj.io/update-strategy: latest
-    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/update-strategy: latest # semver/latest/name/digest
+    argocd-image-updater.argoproj.io/write-back-method: git # 回写Git仓库
     argocd-image-updater.argoproj.io/git-branch: main
 spec:
   project: default
   source:
-    repoURL: https://github.com/devops-advanced-camp/vote-helm.git
+    repoURL: https://github.com/gitkeystone/vote-helm.git
     targetRevision: HEAD
     path: demo-2
     helm:
