@@ -45,7 +45,7 @@ spec:
     spec:
       containers:
         - name: webhook-server
-          image: lyzhang1999/webhook-admission-example
+          image: dockerkeystone/webhook-admission-example
           ports:
             - containerPort: 3000
               name: webhook-api

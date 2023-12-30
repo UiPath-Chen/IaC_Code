@@ -14,7 +14,7 @@ path "*" {
 1. 选择右侧的 Secrets engines，在界面里创建新的 Secrets Engines，选择 KV，path 命名为: k8s
 1. 在刚才创建的 secret engine 里创建新的 Secret，Path：example, key: PASSWORD, value: password123
 1. 然后切换刚才创建的用户登录 vault ui，example: exmaple, 点击头像，复制 token
-1. 创建 secret：kubectl create secret -n external-secrets  generic vault-token \ 
+1. 创建 secret：kubectl create secret -n external-secrets  generic vault-token \
     --from-literal=token='<token>'
 1. kubectl apply -f secretstore.yaml 配置集群级级 secret store
 1. 创建 external secret：kubectl apply -f externalsecrets.yaml
