@@ -5,7 +5,8 @@ metadata:
   namespace: harbor
 spec:
   acme:
-    email: wangwei27494731@gmail.com
+    # email: wangwei27494731@gmail.com
+    email: ysucxh@163.com
     privateKeySecretRef:
       name: gitlab-acme-key
     # TODO CHANGE TO PRODUCTION

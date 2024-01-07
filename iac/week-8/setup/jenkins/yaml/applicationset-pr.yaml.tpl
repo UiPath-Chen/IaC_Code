@@ -7,7 +7,7 @@ spec:
   generators:
     - pullRequest:
         github:
-          owner: devops-advanced-camp
+          owner: gitkeystone
           repo: vote
           tokenRef:
             secretName: github-token
@@ -19,13 +19,13 @@ spec:
       annotations:
         prNumber: "{{number}}"
         prPreviewHost: "${prefix}.${domain}"
-        githubOwner: devops-advanced-camp
+        githubOwner: gitkeystone
         githubRepo: vote
         notifications.argoproj.io/subscribe.on-sync-succeeded.github-webhook: "github-webhook"
     spec:
       project: default
       source:
-        repoURL: "https://github.com/devops-advanced-camp/vote-helm.git"
+        repoURL: "https://github.com/gitkeystone/vote-helm.git"
         targetRevision: HEAD
         path: "week-8"
         helm:

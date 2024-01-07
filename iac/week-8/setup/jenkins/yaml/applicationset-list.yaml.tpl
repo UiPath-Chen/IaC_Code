@@ -40,7 +40,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: "https://github.com/devops-advanced-camp/vote-helm.git"
+        repoURL: "https://github.com/gitkeystone/vote-helm.git"
         targetRevision: HEAD
         path: "week-8"
         helm:

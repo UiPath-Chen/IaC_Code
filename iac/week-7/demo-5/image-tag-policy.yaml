@@ -40,4 +40,4 @@ spec:
         pattern:
           spec:
             containers:
-              - image: "!*:latest"
+              - image: "!*:latest"          # 只允许非 latest 结尾的 image

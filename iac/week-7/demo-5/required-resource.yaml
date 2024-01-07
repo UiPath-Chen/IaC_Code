@@ -31,8 +31,11 @@ spec:
           spec:
             containers:
               - resources:
-                  requests:
+                  requests:           # 必须指定 memory/cpu
                     memory: "?*"
                     cpu: "?*"
-                  limits:
+                  limits:             # 必须指定 memory
                     memory: "?*"
+
+
+

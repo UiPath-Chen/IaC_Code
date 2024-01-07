@@ -1,0 +1,19 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: require-labels
+spec:
+  validationFailureAction: Enforce
+  rules:
+    - name: check-owner
+      match:
+        any:
+          - resources:
+              kinds:
+                - Deployment                    # 要检查的CRD对象
+      validate:
+        message: "label 'owner' is required"
+        pattern:
+          metadata:
+            labels:
+              owner: "?*"                        # 要检查的项目

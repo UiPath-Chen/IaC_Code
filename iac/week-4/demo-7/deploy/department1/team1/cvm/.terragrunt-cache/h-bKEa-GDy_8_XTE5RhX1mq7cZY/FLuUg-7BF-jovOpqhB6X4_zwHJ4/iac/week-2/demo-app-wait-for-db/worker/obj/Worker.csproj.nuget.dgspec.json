@@ -1,0 +1,75 @@
+{
+  "format": 1,
+  "restore": {
+    "/root/iac-code/iac/week-4/demo-7/deploy/department1/team1/cvm/.terragrunt-cache/h-bKEa-GDy_8_XTE5RhX1mq7cZY/FLuUg-7BF-jovOpqhB6X4_zwHJ4/iac/week-2/demo-app-wait-for-db/worker/Worker.csproj": {}
+  },
+  "projects": {
+    "/root/iac-code/iac/week-4/demo-7/deploy/department1/team1/cvm/.terragrunt-cache/h-bKEa-GDy_8_XTE5RhX1mq7cZY/FLuUg-7BF-jovOpqhB6X4_zwHJ4/iac/week-2/demo-app-wait-for-db/worker/Worker.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/root/iac-code/iac/week-4/demo-7/deploy/department1/team1/cvm/.terragrunt-cache/h-bKEa-GDy_8_XTE5RhX1mq7cZY/FLuUg-7BF-jovOpqhB6X4_zwHJ4/iac/week-2/demo-app-wait-for-db/worker/Worker.csproj",
+        "projectName": "Worker",
+        "projectPath": "/root/iac-code/iac/week-4/demo-7/deploy/department1/team1/cvm/.terragrunt-cache/h-bKEa-GDy_8_XTE5RhX1mq7cZY/FLuUg-7BF-jovOpqhB6X4_zwHJ4/iac/week-2/demo-app-wait-for-db/worker/Worker.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/root/iac-code/iac/week-4/demo-7/deploy/department1/team1/cvm/.terragrunt-cache/h-bKEa-GDy_8_XTE5RhX1mq7cZY/FLuUg-7BF-jovOpqhB6X4_zwHJ4/iac/week-2/demo-app-wait-for-db/worker/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/root/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[4.1.9, )"
+            },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/root/.dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

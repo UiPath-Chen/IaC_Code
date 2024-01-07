@@ -20,7 +20,7 @@ spec:
         pattern:
           spec:
             containers:
-              - image: docker.io/*
+              - image: docker.io/*          # 只允许以 docker.io 开头的 image
     - name: validate-registries
       match:
         resources:
