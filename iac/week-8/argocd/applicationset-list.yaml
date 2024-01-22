@@ -21,19 +21,25 @@ spec:
         argocd-image-updater.argoproj.io/result.allow-tags: regexp:^{{cluster}}
         argocd-image-updater.argoproj.io/result.helm.image-name: RESULT.IMAGE
         argocd-image-updater.argoproj.io/result.helm.image-tag: RESULT.TAG
-        argocd-image-updater.argoproj.io/result.pull-secret: pullsecret:argocd/harbor-pull-secret
+        argocd-image-updater.argoproj.io/result.pull-secret: >-
+          pullsecret:argocd/harbor-pull-secret
         # vote microservice
         argocd-image-updater.argoproj.io/vote.allow-tags: regexp:^{{cluster}}
         argocd-image-updater.argoproj.io/vote.helm.image-name: VOTE.IMAGE
         argocd-image-updater.argoproj.io/vote.helm.image-tag: VOTE.TAG
-        argocd-image-updater.argoproj.io/vote.pull-secret: pullsecret:argocd/harbor-pull-secret
+        argocd-image-updater.argoproj.io/vote.pull-secret: >-
+          pullsecret:argocd/harbor-pull-secret
         # worker microservice
         argocd-image-updater.argoproj.io/worker.allow-tags: regexp:^{{cluster}}
         argocd-image-updater.argoproj.io/worker.helm.image-name: WORKER.IMAGE
         argocd-image-updater.argoproj.io/worker.helm.image-tag: WORKER.TAG
-        argocd-image-updater.argoproj.io/worker.pull-secret: pullsecret:argocd/harbor-pull-secret
+        argocd-image-updater.argoproj.io/worker.pull-secret: >-
+          pullsecret:argocd/harbor-pull-secret
         # image list
-        argocd-image-updater.argoproj.io/image-list: result=harbor.${prefix}.${domain}/vote/result, vote=harbor.${prefix}.${domain}/vote/vote, worker=harbor.${prefix}.${domain}/vote/worker
+        argocd-image-updater.argoproj.io/image-list: >-
+          result=harbor.george.gkdevopscamp.uk/vote/result,
+          vote=harbor.george.gkdevopscamp.uk/vote/vote,
+          worker=harbor.george.gkdevopscamp.uk/vote/worker
         argocd-image-updater.argoproj.io/update-strategy: latest
         argocd-image-updater.argoproj.io/write-back-method: git
         argocd-image-updater.argoproj.io/git-branch: main

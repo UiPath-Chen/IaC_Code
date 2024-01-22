@@ -6,6 +6,7 @@ module "cvm" {
   password   = var.password
 }
 
+
 module "k3s" {
   depends_on  = [module.cvm]
   source      = "../../module/k3s"

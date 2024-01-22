@@ -1,3 +1,4 @@
+# IMAGE 没有集成 OTel SDK
 apiVersion: apps/v1
 kind: Deployment
 metadata:

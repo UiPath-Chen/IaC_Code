@@ -58,6 +58,11 @@ resource "null_resource" "connect_cvm" {
   }
 
   provisioner "file" {
+    source = "./yaml/servicemonitor.yaml"
+    destination = "/tmp/servicemonitor.yaml"
+  }
+
+  provisioner "file" {
     source      = "init.sh"
     destination = "/tmp/init.sh"
   }

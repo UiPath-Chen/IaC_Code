@@ -36,12 +36,12 @@ alertmanager:
         app: alertmanager
   config:
     global:
-      resolve_timeout: 5m
+      resolve_timeout: 1m # 5m
     route:
       group_by: ["job"]
       group_wait: 10s
-      group_interval: 5m
-      repeat_interval: 12h
+      group_interval: 5m # 5m
+      repeat_interval: 12h # 12h
       receiver: "prometheusalert"
       routes:
         - receiver: "null"
@@ -52,6 +52,8 @@ alertmanager:
       - name: "null"
       - name: "prometheusalert"
         webhook_configs:
-          - url: "http://prometheus-alert-center.monitoring:8080/prometheusalert?type=fs&tpl=prometheus-fs&fsurl=https://open.feishu.cn/open-apis/bot/v2/hook/735cbc74-ad11-47b4-9a92-b18636dc4b64"
+          - url: "http://prometheus-alert-center.monitoring:8080/prometheusalert?type=fs&tpl=prometheus-fs&fsurl=https://open.feishu.cn/open-apis/bot/v2/hook/3ce85260-63bf-4240-8b60-b6768d12b3e3"
     templates:
       - "/etc/alertmanager/config/*.tmpl"
+
+

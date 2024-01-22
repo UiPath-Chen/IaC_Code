@@ -3,7 +3,7 @@ kind: Probe
 metadata:
   name: http-probe-geektime
   labels:
-    release: kube-prometheus-stack
+    release: kube-prometheus-stack      # 固定
 spec:
   prober:
     url: blackbox-exporter-prometheus-blackbox-exporter.monitoring:9115
@@ -14,3 +14,4 @@ spec:
       static:
         - https://time.geekbang.org
         - https://www.infoq.cn
+

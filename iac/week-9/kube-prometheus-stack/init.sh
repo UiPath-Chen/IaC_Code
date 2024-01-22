@@ -27,3 +27,5 @@ kubectl create ns app
 kubectl apply -f /tmp/manifest -n app
 
 kubectl wait deployment -n app --for condition=Available=True --all --timeout=900s
+
+

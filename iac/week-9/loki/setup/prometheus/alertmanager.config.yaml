@@ -15,4 +15,5 @@ spec:
   receivers:
     - name: "prometheusalert"
       webhookConfigs:
-        - url: "http://prometheus-alert-center.monitoring:8080/prometheusalert?type=fs&tpl=prometheus-fs&fsurl=https://open.feishu.cn/open-apis/bot/v2/hook/735cbc74-ad11-47b4-9a92-b18636dc4b64"
+        - url: "http://prometheus-alert-center.monitoring:8080/prometheusalert?type=fs&tpl=prometheus-fs&fsurl=https://open.feishu.cn/open-apis/bot/v2/hook/3ce85260-63bf-4240-8b60-b6768d12b3e3"
+

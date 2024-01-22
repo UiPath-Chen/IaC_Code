@@ -8,12 +8,37 @@ spec:
   groups:
     - name: app_http
       rules:
-        - expr: |
+        - expr: |-                                  # 告警的表达式
             sum(rate(http_requests_total{job="week9-prometheus-app-service"}[1m])) by(path) > 10
-          for: 10s
+          for: 10s         # 示例值，触发告警所需的持续时间，过短会导致频繁触发和解除告警，生产环境建议设置为 2-10 min
           alert: App QPS High Alert
           annotations:
             summary: 突发流量告警
-            description: 接口 {{$labels.path}} QPS 过高，值为 {{ $value }}
+            description: 接口 {{$labels.path}} QPS 过高，值为 {{ $value }}  # Go Template 访问变量
           labels:
             severity: critical
+---
+# apiVersion: monitoring.coreos.com/v1
+# kind: PrometheusRule
+# metadata:
+#   labels:
+#     release: kube-prometheus-stack
+#   name: app-http-latency-alert
+# spec:
+#   groups:
+#     - name: app_http
+#       rules:
+#         - expr: |-                                  # 告警的表达式
+#             sum(increase(http_response_time_seconds{job="week9-prometheus-app-service"}[1m])) by(path) > 10
+#           for: 10s         # 示例值，触发告警所需的持续时间，过短会导致频繁触发和解除告警，生产环境建议设置为 2-10 min
+#           alert: App QPS High Alert
+#           annotations:
+#             summary: 突发流量告警
+#             description: 接口 {{$labels.path}} QPS 过高，值为 {{ $value }}  # Go Template 访问变量
+#           labels:
+#             severity: critical
+
+
+
+
+

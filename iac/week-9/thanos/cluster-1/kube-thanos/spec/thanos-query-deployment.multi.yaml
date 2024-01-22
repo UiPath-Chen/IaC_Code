@@ -51,7 +51,7 @@ spec:
             - --endpoint=dnssrv+_grpc._tcp.kube-prometheus-stack-thanos-discovery.monitoring:10901
             - --endpoint=dnssrv+_grpc._tcp.thanos-receive-ingestor-default:10901
             # 修改 endpoint 地址为 cluster 2 IP，实现多集群监控
-            - --endpoint=43.129.205.164:30901
+            - --endpoint=43.135.10.88:30901
             - --query.auto-downsampling
           env:
             - name: HOST_IP_ADDRESS

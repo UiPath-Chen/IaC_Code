@@ -21,7 +21,8 @@ spec:
         prPreviewHost: "${prefix}.${domain}"
         githubOwner: gitkeystone
         githubRepo: vote
-        notifications.argoproj.io/subscribe.on-sync-succeeded.github-webhook: "github-webhook"
+        notifications.argoproj.io/subscribe.on-sync-succeeded.github-webhook: >-
+          "github-webhook"
     spec:
       project: default
       source:
@@ -30,10 +31,10 @@ spec:
         path: "week-8"
         helm:
           valueFiles:
-            - "values.yaml"
+            - "values.yaml"          # Helm Chart's Values
           parameters:
             - name: "RESULT.TAG"
-              value: "{{head_sha}}"  # 部署PR对应的镜像； head_sha: argo built-in id
+              value: "{{head_sha}}"  # 部署PR对应的镜像； head_sha: github-commit-id
             - name: "VOTE.TAG"
               value: "{{head_sha}}"
             - name: "WORKER.TAG"

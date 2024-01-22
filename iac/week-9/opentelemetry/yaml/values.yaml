@@ -33,10 +33,10 @@ grafana:
             name: TraceID
         httpMethod: POST
       readOnly: false
-      editable: true
+      editable: false
 
     - uid: alertmanager
-      orgId: 1
+      orgId: 2
       name: Alertmanager
       type: alertmanager
       typeName: Alertmanager
@@ -44,7 +44,7 @@ grafana:
       url: http://kube-prometheus-stack-alertmanager:9093
 
     - uid: tempo
-      orgId: 1
+      orgId: 3
       name: Tempo
       type: tempo
       typeName: Tempo
@@ -54,7 +54,7 @@ grafana:
       user: ""
       database: ""
       basicAuth: false
-      isDefault: false
+      isDefault: true
       jsonData:
         nodeGraph:
           enabled: true
@@ -73,7 +73,7 @@ grafana:
       editable: true
 
     - uid: loki
-      orgId: 1
+      orgId: 4
       name: Loki
       type: loki
       typeName: Loki

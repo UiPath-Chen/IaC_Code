@@ -15,5 +15,10 @@ spec:
         metric:
           name: http_requests_qps
         target:
-          averageValue: 10
+          averageValue: 10          # Pod 平均 QPS > 10, 则触发 HPA；
           type: AverageValue
+
+
+
+
+

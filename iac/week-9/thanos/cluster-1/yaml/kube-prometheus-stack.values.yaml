@@ -9,6 +9,16 @@ grafana:
     nodePort: 30080
 
 prometheus:
+  # Enable thanosService
+  thanosService:
+    enabled: true
+  thanosServiceMonitor:
+    enabled: true
+  thanosServiceExternal:
+    enabled: true
+    type: NodePort
+
+  # Add spec for thanos sidecar
   prometheusSpec:
     enableFeatures:
       - exemplar-storage
@@ -20,6 +30,8 @@ prometheus:
     retention: 6h
     thanos:
       # enable thanos sidecar, for upload block to cos
+      image: "quay.io/thanos/thanos:v0.32.5"
+      version: "v0.32.5"
       objectStorageConfig:
         name: thanos-objectstorage
         key: thanos.yaml
@@ -30,10 +42,10 @@ prometheus:
           resources:
             requests:
               storage: 10Gi
-  thanosService:
-    enabled: true
-  thanosServiceMonitor:
-    enabled: true
-  thanosServiceExternal:
-    enabled: true
-    type: NodePort
+
+
+
+
+
+
+
