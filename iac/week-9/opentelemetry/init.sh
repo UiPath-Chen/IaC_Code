@@ -6,7 +6,7 @@ helm repo add prometheus-community https://prometheus-community.github.io/helm-c
 helm repo add grafana https://grafana.github.io/helm-charts
 helm repo update
 
-# install kube-prometheus-stack, include prometheus, alertmanager, grafana, loki
+# install kube-prometheus-stack, include prometheus, alertmanager, grafana(DataSource: Prometheus/Alertmanager/Loki/Tempo)
 helm upgrade --install kube-prometheus-stack -n monitoring --create-namespace prometheus-community/kube-prometheus-stack -f /tmp/values.yaml
 
 # install loki

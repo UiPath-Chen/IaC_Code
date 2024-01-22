@@ -1,6 +1,0 @@
-{
-    "commentTranslate.targetLanguage": "zh-CN",
-    "yaml.schemas": {
-        "https://json.schemastore.org/yamllint.json": "file:///root/iac-code/iac/week-9/opentelemetry/yaml/microservice.yaml"
-    }
-}
