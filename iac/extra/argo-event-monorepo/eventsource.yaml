@@ -5,8 +5,9 @@ metadata:
   namespace: argo-events
 stringData:
   # TODO 注意凭据有效性
-  username: github_username
-  password: github_pat
+  username: gitkeystone
+  # github personal access token
+  password: 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
 type: Opaque
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -25,15 +26,16 @@ spec:
     # 对应 sensor 中的 eventName
     devops-camp:
       repositories:
-        - owner: devops-advanced-camp
+        # - owner: devops-advanced-camp
+        - owner: gitkeystone
           names:
             - vote
       webhook:
         endpoint: /push
         port: "12000"
         method: POST
-        # TODO 修改为集群 IP 地址
-        url: http://43.129.188.152:30000
+        # TODO 示例将通过 NodePort 暴露（需要手动，生产环境，使用 Ingress）；修改为节点 Public-IP 地址
+        url: http://43.129.172.209:30000
       events:
         #- "*"
         - "push"
@@ -43,3 +45,7 @@ spec:
       insecure: true
       active: true
       contentType: json
+
+
+
+

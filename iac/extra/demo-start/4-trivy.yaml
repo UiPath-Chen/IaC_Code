@@ -38,7 +38,7 @@ spec:
           - name: argo-source
             path: /src
             git:
-              repo: "https://github.com/devops-advanced-camp/vote.git"
+              repo: "https://github.com/gitkeystone/vote.git"
               revision: "main"
               usernameSecret:
                 name: github-creds
@@ -62,7 +62,7 @@ spec:
       inputs:
         parameters:
           - name: oci-registry
-            value: "docker.io/lyzhang1999"
+            value: "docker.io/dockerkeystone"
           - name: oci-image
             value: "vote"
           - name: oci-tag
@@ -80,7 +80,7 @@ spec:
         volumeMounts:
           - name: workdir
             mountPath: /workdir
-
+    # 扫描镜像
     - name: trivy-image-scan
       inputs:
         parameters:
@@ -93,11 +93,12 @@ spec:
           - --input=/workdir/.tar
           - --severity=CRITICAL
           - --exit-code=1
-          - --ignore-unfixed
+          # TODO 模拟漏洞
+          # - --ignore-unfixed
         volumeMounts:
           - name: workdir
             mountPath: /workdir
-
+    # 扫描源码
     - name: trivy-filesystem-scan
       inputs:
         parameters:
@@ -115,3 +116,5 @@ spec:
         volumeMounts:
           - name: workdir
             mountPath: /workdir
+
+

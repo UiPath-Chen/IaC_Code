@@ -1,0 +1,35 @@
+apiVersion: policy.karmada.io/v1alpha1
+kind: PropagationPolicy
+metadata:
+  name: nginx-policy
+
+spec:
+  resourceSelectors:
+  - apiVersion: apps/v1
+    kind: Deployment
+    name: nginx
+    namespace: default
+
+  placement:
+    clusterAffinity:
+      fieldSelector:
+        matchExpressions:
+        - key: provider
+          operator: In
+          values:
+          - tencentcloud
+
+        - key: region
+          operator: NotIn
+          values:
+            - cn-south-1
+
+        - key: zone
+          operator: In
+          values:
+          - guangzhou-1
+
+
+
+
+

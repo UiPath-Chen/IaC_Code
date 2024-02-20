@@ -1,0 +1,6 @@
+{
+    "commentTranslate.targetLanguage": "zh-CN",
+    "yaml.schemas": {
+        "kubernetes://schema/v1%40serviceaccount": "file:///root/iac-code/iac/extra/argo-event/sensor-vote.yaml"
+    }
+}

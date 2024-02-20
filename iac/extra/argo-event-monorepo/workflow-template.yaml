@@ -21,11 +21,11 @@ spec:
   arguments:
     parameters:
       - name: repo
-        value: https://github.com/devops-advanced-camp/vote.git
+        value: https://github.com/gitkeystone/vote.git
       - name: revision
         value: main
       - name: oci-registry
-        value: "docker.io/lyzhang1999"
+        value: "docker.io/dockerkeystone"
       - name: oci-image
         value: vote
       - name: oci-tag
@@ -187,7 +187,7 @@ spec:
           - -c
         args:
           - >
-            crane auth login docker.io -u $OCI_REGISTRY_USER -p $OCI_REGISTRY_PASSWORD &&  
+            crane auth login docker.io -u $OCI_REGISTRY_USER -p $OCI_REGISTRY_PASSWORD &&
             crane push /workdir/.tar {{inputs.parameters.oci-registry}}/{{inputs.parameters.oci-image}}:{{inputs.parameters.oci-tag}}
         volumeMounts:
           - name: workdir
@@ -204,10 +204,10 @@ spec:
           - "Content-Type: application/json"
           - "-d"
           - >
-            {  
-              "msg_type":"text",  
-              "content":{  
-                "text":"CI: {{workflow.name}}，状态：{{workflow.status}}，耗时：{{workflow.duration}}"  
-              }  
+            {
+              "msg_type":"text",
+              "content":{
+                "text":"CI: {{workflow.name}}，状态：{{workflow.status}}，耗时：{{workflow.duration}}"
+              }
             }
-          - "https://open.feishu.cn/open-apis/bot/v2/hook/e9adbd58-7e89-437c-afdf-2efe24369237"
+          - "https://open.feishu.cn/open-apis/bot/v2/hook/ef8d8610-7ab9-4db5-99f4-edfe815096ef"

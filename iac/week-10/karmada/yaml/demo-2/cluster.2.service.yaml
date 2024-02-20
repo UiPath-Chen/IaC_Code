@@ -16,7 +16,9 @@ spec:
         - name: serve
           image: jeremyot/serve:0a40de8
           args:
+            # - --http:8080
             - '--message=''hello from cluster member2 (Node: {{env "NODE_NAME"}} Pod: {{env "POD_NAME"}} Address: {{addr}})'''
+            # - --message=Hello from {{env "POD_NAME"}} ({{addr}}) on node {{env "NODE_NAME"}}
           env:
             - name: NODE_NAME
               valueFrom:
@@ -26,6 +28,11 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.name
+          # resources:
+          #   limits:
+          #     cpu: 100m
+          #     memory: 50M
+
 ---
 apiVersion: v1
 kind: Service
@@ -34,6 +41,7 @@ metadata:
 spec:
   ports:
     - port: 80
+      protocol: TCP
       targetPort: 8080
   selector:
     app: serve

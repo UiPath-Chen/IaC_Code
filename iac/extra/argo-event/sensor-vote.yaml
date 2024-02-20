@@ -49,13 +49,16 @@ spec:
   dependencies:
     - name: github-event
       eventSourceName: github
+      # TODO 关联 EventSource
       eventName: devops-camp
-      filters:
-        data:
-          - path: "[body.commits.#.modified.@flatten,body.commits.#.added.@flatten,body.commits.#.removed.@flatten].@flatten.@flatten"
-            type: string
-            value:
-              - "vote/*"
+      # TODO 仅 watch 指定 dir: vote
+      # filters:
+      #   data:
+      #     - path: >-
+      #         "[body.commits.#.modified.@flatten,body.commits.#.added.@flatten,body.commits.#.removed.@flatten].@flatten.@flatten"
+      #       type: string
+      #       value:
+      #         - "vote/*"
   triggers:
     - template:
         conditions: github-event
@@ -72,9 +75,11 @@ spec:
                 arguments:
                   parameters:
                     - name: repo
+                    # TODO 隐含 value
+                    # value: ""
                     - name: revision
                     - name: oci-registry
-                      value: "docker.io/lyzhang1999"
+                      value: "docker.io/dockerkeystone"
                     - name: oci-image
                     - name: oci-tag
                     - name: microservice
@@ -87,7 +92,8 @@ spec:
               src:
                 dependencyName: github-event
                 dataKey: body.repository.clone_url
-                value: "https://github.com/devops-advanced-camp/vote.git"
+                # TODO 默认值
+                value: "https://github.com/gitkeystone/vote.git"
             - dest: spec.arguments.parameters.1.value
               src:
                 dependencyName: github-event

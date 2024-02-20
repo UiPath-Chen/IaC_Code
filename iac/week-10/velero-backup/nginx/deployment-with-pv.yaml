@@ -5,8 +5,8 @@ metadata:
   labels:
     app: nginx
 ---
-kind: PersistentVolumeClaim
 apiVersion: v1
+kind: PersistentVolumeClaim
 metadata:
   name: nginx-logs
   namespace: nginx
@@ -17,6 +17,7 @@ metadata:
     app: nginx
 spec:
   accessModes:
+    # the volume can be mounted as read-write by a single node
     - ReadWriteOnce
   resources:
     requests:
@@ -68,3 +69,6 @@ spec:
   selector:
     app: nginx
   type: NodePort
+
+
+

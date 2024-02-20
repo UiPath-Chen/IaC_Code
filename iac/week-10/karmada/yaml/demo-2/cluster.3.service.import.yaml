@@ -21,3 +21,4 @@ spec:
     clusterAffinity:
       clusterNames:
         - cluster-3
+

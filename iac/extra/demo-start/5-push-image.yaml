@@ -43,7 +43,7 @@ spec:
           - name: argo-source
             path: /src
             git:
-              repo: "https://github.com/devops-advanced-camp/vote.git"
+              repo: "https://github.com/gitkeystone/vote.git"
               revision: "main"
               usernameSecret:
                 name: github-creds
@@ -67,7 +67,7 @@ spec:
       inputs:
         parameters:
           - name: oci-registry
-            value: "docker.io/lyzhang1999"
+            value: "docker.io/dockerkeystone"
           - name: oci-image
             value: "vote"
           - name: oci-tag
@@ -125,7 +125,7 @@ spec:
       inputs:
         parameters:
           - name: oci-registry
-            value: "docker.io/lyzhang1999"
+            value: "docker.io/dockerkeystone"
           - name: oci-image
             value: "vote"
           - name: oci-tag
@@ -148,7 +148,7 @@ spec:
           - -c
         args:
           - >
-            crane auth login docker.io -u $OCI_REGISTRY_USER -p $OCI_REGISTRY_PASSWORD &&  
+            crane auth login docker.io -u $OCI_REGISTRY_USER -p $OCI_REGISTRY_PASSWORD &&
             crane push /workdir/.tar {{inputs.parameters.oci-registry}}/{{inputs.parameters.oci-image}}:{{inputs.parameters.oci-tag}}
         volumeMounts:
           - name: workdir

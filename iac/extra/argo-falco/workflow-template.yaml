@@ -12,6 +12,9 @@ rules:
   - apiGroups: [""]
     resources: ["pods"]
     verbs: ["get", "list", "delete", "patch", "watch"]
+  # - apiGroups: ["argoproj.io"]
+  #   resources: ["workflowtaskresults"]
+  #   verbs: ["create", "patch"]
 ---
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
@@ -29,6 +32,7 @@ subjects:
 apiVersion: argoproj.io/v1alpha1
 kind: WorkflowTemplate
 metadata:
+  # TODO
   name: delete-pod-template
   namespace: argo
 spec:
@@ -44,6 +48,7 @@ spec:
         parameters:
           - name: falco-event
       container:
+        # 专门 KILL POD 的镜像
         image: devopps/kubernetes-response-engine-based-on-event-driven-workflow@sha256:22ee203a33fe88f0f99968daebdcea0ca52c8a3d6f7af4c823ed78ac15b7c5db
         env:
           - name: BODY

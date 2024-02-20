@@ -75,7 +75,7 @@ spec:
                     - name: repo
                     - name: revision
                     - name: oci-registry
-                      value: "docker.io/lyzhang1999"
+                      value: "docker.io/dockerkeystone"
                     - name: oci-image
                     - name: oci-tag
                     - name: push-image
@@ -88,7 +88,7 @@ spec:
               src:
                 dependencyName: github-event
                 dataKey: body.repository.clone_url
-                value: "https://github.com/devops-advanced-camp/vote.git"
+                value: "https://github.com/gitkeystone/vote.git"
             - dest: spec.arguments.parameters.1.value
               src:
                 dependencyName: github-event
